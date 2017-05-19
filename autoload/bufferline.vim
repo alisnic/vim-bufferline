@@ -19,7 +19,7 @@ function! s:generate_names()
     let i = w:history[index]
 
     if bufexists(i) && buflisted(i)
-      let modified = ' '
+      let modified = ''
       if getbufvar(i, '&mod')
         let modified = g:bufferline_modified
       endif
