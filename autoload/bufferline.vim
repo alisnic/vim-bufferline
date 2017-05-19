@@ -39,9 +39,6 @@ function! s:generate_names()
 
       if !skip
         let name = ''
-        if g:bufferline_show_bufnr != 0 && g:bufferline_status_info.count >= g:bufferline_show_bufnr
-          let name =  i . ':'
-        endif
         let name .= fname . modified
 
         if current_buffer == i
@@ -131,7 +128,7 @@ function! bufferline#init_echo()
     au!
 
     " events which output a message which should be immediately overwritten
-    autocmd BufWinEnter,WinEnter,InsertLeave,VimResized * call s:refresh(1)
+    autocmd BufEnter * call s:refresh(1)
   augroup END
 
   autocmd CursorHold * call s:echo()
