@@ -6,10 +6,18 @@ let s:window_start = 0
 
 function! s:generate_names()
   let names = []
-  let i = 1
-  let last_buffer = bufnr('$')
+  let i = 0
+  let index = 0
+
+  if !exists("w:history") || len(w:history) == 0
+    return
+  endif
+
   let current_buffer = bufnr('%')
-  while i <= last_buffer
+
+  while index < len(w:history)
+    let i = w:history[index]
+
     if bufexists(i) && buflisted(i)
       let modified = ' '
       if getbufvar(i, '&mod')
@@ -46,7 +54,7 @@ function! s:generate_names()
         call add(names, [i, name])
       endif
     endif
-    let i += 1
+    let index += 1
   endwhile
 
   if len(names) > 1
