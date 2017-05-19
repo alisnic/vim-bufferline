@@ -132,8 +132,8 @@ function! bufferline#init_echo()
     au!
 
     " events which output a message which should be immediately overwritten
-    autocmd BufEnter * call s:refresh(1)
+    autocmd BufEnter,InsertLeave * call s:refresh(1)
   augroup END
 
-  autocmd CursorHold * call s:echo()
+  " autocmd CursorHold * call s:echo()
 endfunction
