@@ -10,7 +10,11 @@ function! s:generate_names()
   let index = 0
 
   if !exists("w:history") || len(w:history) == 0
-    return
+    return []
+  endif
+
+  if len(w:history) == 1
+    return []
   endif
 
   let current_buffer = bufnr('%')
