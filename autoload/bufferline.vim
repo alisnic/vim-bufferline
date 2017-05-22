@@ -13,10 +13,6 @@ function! s:generate_names()
     return []
   endif
 
-  if len(w:history) == 1
-    return []
-  endif
-
   let current_buffer = bufnr('%')
 
   while index < len(w:history)
