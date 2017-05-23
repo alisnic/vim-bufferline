@@ -41,7 +41,7 @@ function! s:generate_names()
         let name = ''
         let name .= fname . modified
 
-        if current_buffer == i
+        if index == w:history_index
           let name = g:bufferline_active_buffer_left . name . g:bufferline_active_buffer_right
           let g:bufferline_status_info.current = name
         else
