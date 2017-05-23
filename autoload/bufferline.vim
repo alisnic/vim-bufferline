@@ -1,9 +1,3 @@
-" keep track of vimrc setting
-let s:updatetime = &updatetime
-
-" keep track of scrollinf window start
-let s:window_start = 0
-
 function! s:generate_names()
   let names = []
   let i = 0
@@ -42,7 +36,6 @@ function! s:generate_names()
         let name .= fname . modified
 
         if index == w:history_index
-          let name = g:bufferline_active_buffer_left . name . g:bufferline_active_buffer_right
           let g:bufferline_status_info.current = name
         else
           let name = g:bufferline_separator . name . g:bufferline_separator
