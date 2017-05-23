@@ -55,7 +55,3 @@ function! bufferline#get_status_string()
         \.'%#'.g:bufferline_inactive_highlight.'#'
         \.'%{g:bufferline_status_info.after}'
 endfunction
-
-if g:bufferline_echo
-  call bufferline#init_echo()
-endif
